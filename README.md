@@ -17,7 +17,7 @@ vara uppfyllda.
 
 ## Sista inlämningstid
 
-Lämna in uppgiften senast den `2024-02-26` kl. `23:59:59`.
+Lämna in uppgiften senast den `2024-03-04` kl. `23:59:59`.
 
 * Ni kan göra färdigt er uppgift efter deadline men ni hamnar sist i prioritering med att rättas.
 * Om ni inte lämnar in något alls får ni IG på er inlämning.
