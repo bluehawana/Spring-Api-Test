@@ -32,32 +32,46 @@ class FlowerControllerTests {
 
     @BeforeEach
     public void setup() {
-        fail("Not implemented yet");
+        flower = new Flower();
+        flower.setId(1L);
+        flower.setName("Tulip");
+        flower.setFamily("Liliaceae");
     }
 
     @Test
     void testAddFlower() throws Exception {
-        fail("Not implemented yet");
+        ObjectMapper objectMapper = new ObjectMapper();
+        String flowerJson = objectMapper.writeValueAsString(flower);
+
     }
 
     @Test
     void testGetAllFlowers() throws Exception {
-        fail("Not implemented yet");
+       mockMvc.perform(get("api/flowers/all"))
+               .andExpect(status().isOk());
     }
 
     @Test
     void testGetFlowerById() throws Exception {
-        fail("Not implemented yet");
+        mockMvc.perform(get("api/flowers/1"))
+                .andExpect(status().isOk());
     }
 
     @Test
     void testUpdateFlower() throws Exception {
-        fail("Not implemented yet");
+        ObjectMapper objectMapper = new ObjectMapper();
+        String flowerJson = objectMapper.writeValueAsString(flower);
+
+        mockMvc.perform(put("api/flowers/{id}",1)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(flowerJson))
+                .andExpect(status().isOk());
     }
 
     @Test
     void testDeleteFlower() throws Exception {
-        fail("Not implemented yet");
+        mockMvc.perform(delete("api/flowers/{id}", 1))
+                .andExpect(status().isOk());
     }
 
 }

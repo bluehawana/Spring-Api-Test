@@ -21,6 +21,7 @@ public class FlowerController {
     }
 
     // Endpoint för att lägga till en ny blomma
+
     @PostMapping("/add")
     public ResponseEntity<Flower> addFlower(@RequestBody Flower flower) {
         Flower newFlower = flowerService.addFlower(flower);

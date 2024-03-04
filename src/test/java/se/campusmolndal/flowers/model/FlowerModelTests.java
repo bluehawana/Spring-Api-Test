@@ -10,11 +10,24 @@ public class FlowerModelTests {
 
     @Test
     public void testFlowerCreation() {
-        fail("Not implemented yet");
+
+        Flower flower = new Flower("Tulip", "Tulipa", "Liliaceae");
+        assertEquals("Tulip", flower.getName());
+        assertEquals("Tulipa", flower.getLatinName());
+        assertEquals("Liliaceae", flower.getFamily());
     }
 
     @Test
     public void testFlowerSetters() {
-        fail("Not implemented yet");
+        Flower flower = new Flower();
+        flower.setId(1L);
+        flower.setName("Tulip");
+        flower.setLatinName("Tulipa");
+        flower.setFamily("Liliaceae");
+
+        assertEquals(1L, flower.getId());
+        assertEquals("Tulip", flower.getName());
+        assertEquals("Tulipa", flower.getLatinName());
+        assertEquals("Liliaceae", flower.getFamily());
     }
 }
