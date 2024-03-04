@@ -43,6 +43,10 @@ class FlowerControllerTests {
         ObjectMapper objectMapper = new ObjectMapper();
         String flowerJson = objectMapper.writeValueAsString(flower);
 
+        mockMvc.perform(post("api/flowers")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(flowerJson))
+                .andExpect(status().isOk());
     }
 
     @Test

@@ -29,5 +29,6 @@ public class FlowerModelTests {
         assertEquals("Tulip", flower.getName());
         assertEquals("Tulipa", flower.getLatinName());
         assertEquals("Liliaceae", flower.getFamily());
+
     }
 }
