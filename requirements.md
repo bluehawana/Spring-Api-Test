@@ -5,10 +5,7 @@
 I detta projekt kommer de studerande att fokusera på att utveckla enhetstester för 'Flowers' API som tillhandahålls.
 Målet är att säkerställa att alla CRUD-operationer fungerar korrekt och att kvaliteten på koden upprätthålls.
 Testerna kommer att implementeras med JUnit och integreras i byggprocessen via Maven. Ett viktigt mål är också att
-generera en testrapport som sammanfattar alla testresultat.
-
-## Mål
-
+generera en testrapport som sammanfattar alla testresultat
 - Utveckla enhetstester för alla CRUD-operationer i 'Flowers' API.
 - Använda JUnit för testimplementation.
 - Integrera tester i Maven byggprocess.
