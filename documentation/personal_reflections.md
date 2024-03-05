@@ -40,9 +40,11 @@ Jag frågade Marcus och ChatGpt för att få hjälp med att lösa problemen. Jag
 ## Reflektion och utvärdering
 
 ### Vad lärde du dig genom att genomföra projektet?
+Jag lärde mig mycket om jUnit och dess funktionalitet. Jag lärde mig också mycket med hur kan man lösa problem med seed och pom fil. Jag lärde mig också mycket. Jag lärde mig också mycket med mock testing och hur man skapar tester för metoder som anropar API:et, och hur man debuggar tester steg med steg.
 
 --- Skriv ovanför och ta inte bort denna raden ---
 
 ### Vilka möjligheter ser du för framtida projekt baserat på denna erfarenhet?
+Jag ser möjligheter att använda jUnit för att skapa tester för andra befintliga koder. Jag ser också möjligheter att använda jUnit för att skapa tester för metoder som anropar API:et, och många andra metoder som jag inte har testat än. Från denna uppgift har jag lärt mig mycket om jUnit och dess funktionalitet, och jag ser möjligheter att använda jUnit för att skapa tester för andra befintliga koder och metoder. Jag ser också möjligheter att använda jUnit för att skapa tester för metoder som anropar API:et, och många andra metoder som jag inte har testat än.
 
 --- Skriv ovanför och ta inte bort denna raden ---
