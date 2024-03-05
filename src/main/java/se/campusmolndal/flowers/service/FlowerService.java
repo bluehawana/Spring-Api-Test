@@ -33,6 +33,23 @@ public class FlowerService {
         return flowerRepository.findById(id); // Hitta blomma baserat på ID
     }
 
+    // seed multiple flowers
+    public List<Flower> seed() {
+        List<Flower> flowers = List.of(
+                new Flower("Tulip", "Tulipa", "Liliaceae"),
+                new Flower("Rose", "Rosa", "Rosaceae"),
+                new Flower("Daisy", "Bellis perennis", "Asteraceae"),
+                new Flower("Sunflower", "Helianthus annuus", "Asteraceae"),
+                new Flower("Lily", "Lilium", "Liliaceae"),
+                new Flower("Orchid", "Orchidaceae", "Orchidaceae"),
+                new Flower("Daffodil", "Narcissus", "Amaryllidaceae"),
+                new Flower("Carnation", "Dianthus caryophyllus", "Caryophyllaceae"),
+                new Flower("Chrysanthemum", "Chrysanthemum", "Asteraceae"),
+                new Flower("Hyacinth", "Hyacinthus", "Asparagaceae")
+        );
+        return flowerRepository.saveAll(flowers);
+    }
+
     // Metod för att uppdatera en befintlig blomma
     public Flower updateFlower(Flower flower) {
         return flowerRepository.save(flower); // Uppdatera blomma i databasen

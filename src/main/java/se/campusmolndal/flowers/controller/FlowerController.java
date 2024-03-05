@@ -56,4 +56,11 @@ public class FlowerController {
         flowerService.deleteFlower(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    // seed
+    @GetMapping("/seed")
+    public ResponseEntity<?> seed() {
+        flowerService.seed();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

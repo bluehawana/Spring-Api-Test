@@ -1,6 +1,7 @@
 package se.campusmolndal.flowers.controller;
 
 import static org.junit.jupiter.api.Assertions.fail;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -18,6 +19,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import se.campusmolndal.flowers.model.Flower;
 import se.campusmolndal.flowers.service.FlowerService;
 
+import java.util.Optional;
+
 @SpringBootTest  // Använd denna för fullständig applikationskontext
 @AutoConfigureMockMvc  // Konfigurera MockMvc utan att behöva starta en fullständig HTTP-server
 class FlowerControllerTests {
@@ -32,49 +35,47 @@ class FlowerControllerTests {
 
     @BeforeEach
     public void setup() {
-        flower = new Flower();
-        flower.setId(1L);
-        flower.setName("Tulip");
-        flower.setFamily("Liliaceae");
+        Flower flower = new Flower(1, "Tulip", "Tulipa", "Liliaceae");
     }
 
     @Test
-    void testAddFlower() throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
-        String flowerJson = objectMapper.writeValueAsString(flower);
-
-        mockMvc.perform(post("api/flowers")
+    void testAddFlower() throws Exception{
+        mockMvc.perform(post("/api/flowers/add")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(flowerJson))
-                .andExpect(status().isOk());
+                .content(new ObjectMapper().writeValueAsString(flower)))
+                .andExpect(status().isCreated());
     }
 
     @Test
     void testGetAllFlowers() throws Exception {
-       mockMvc.perform(get("api/flowers/all"))
-               .andExpect(status().isOk());
+        this.flower = new Flower(1, "Tulip", "Tulipa", "Liliaceae");
+        mockMvc.perform(get("/api/flowers/all"))
+                .andExpect(status().isOk());
     }
 
     @Test
     void testGetFlowerById() throws Exception {
-        mockMvc.perform(get("api/flowers/1"))
+        Flower flower = new Flower(1, "Tulip", "Tulipa", "Liliaceae");
+        when(flowerService.getFlowerById(1L)).thenReturn(Optional.of(flower));
+        mockMvc.perform(get("/api/flowers/1"))
                 .andExpect(status().isOk());
     }
 
     @Test
     void testUpdateFlower() throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
-        String flowerJson = objectMapper.writeValueAsString(flower);
-
-        mockMvc.perform(put("api/flowers/{id}",1)
+        this.flower = new Flower(1, "Tulip", "Tulipa", "Liliaceae");
+        when(flowerService.updateFlower(flower)).thenReturn(flower);
+        mockMvc.perform(put("/api/flowers/update")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(flowerJson))
+                .content(new ObjectMapper().writeValueAsString(flower)))
                 .andExpect(status().isOk());
+
     }
 
     @Test
     void testDeleteFlower() throws Exception {
-        mockMvc.perform(delete("api/flowers/{id}", 1))
+        this.flower = new Flower(1, "Tulip", "Tulipa", "Liliaceae");
+        mockMvc.perform(delete("/api/flowers/delete/1"))
                 .andExpect(status().isOk());
     }
 

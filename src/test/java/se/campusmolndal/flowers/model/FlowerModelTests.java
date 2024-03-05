@@ -11,7 +11,8 @@ public class FlowerModelTests {
     @Test
     public void testFlowerCreation() {
 
-        Flower flower = new Flower("Tulip", "Tulipa", "Liliaceae");
+        Flower flower = new Flower( 1L, "Tulip", "Tulipa", "Liliaceae");
+        assertEquals(1, flower.getId());
         assertEquals("Tulip", flower.getName());
         assertEquals("Tulipa", flower.getLatinName());
         assertEquals("Liliaceae", flower.getFamily());
@@ -25,7 +26,7 @@ public class FlowerModelTests {
         flower.setLatinName("Tulipa");
         flower.setFamily("Liliaceae");
 
-        assertEquals(1L, flower.getId());
+        assertEquals(1, flower.getId());
         assertEquals("Tulip", flower.getName());
         assertEquals("Tulipa", flower.getLatinName());
         assertEquals("Liliaceae", flower.getFamily());
